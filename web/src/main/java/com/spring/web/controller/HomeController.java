@@ -1,8 +1,13 @@
 package com.spring.web.controller;
 
+import com.spring.web.domain.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class HomeController {
@@ -17,5 +22,23 @@ public class HomeController {
     public String hi() {
         return "hi";
     }
+
+    @RequestMapping("/clock")
+    public ModelAndView clock() {
+        ModelAndView mv = new ModelAndView("clock");
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss");
+        String time = format.format(new Date());
+        mv.addObject("now", time);
+
+        Person person = new Person();
+        person.setName("금현호");
+        person.setAge(25);
+
+        mv.addObject("person", person);
+
+        return mv;
+    }
+
 
 }
