@@ -32,8 +32,8 @@ public class HomeController {
         mv.addObject("now", time);
 
         Person person = new Person();
-        person.setName("금현호");
-        person.setAge(25);
+        person.setName("김상은");
+        person.setAge(6);
 
         mv.addObject("person", person);
 
