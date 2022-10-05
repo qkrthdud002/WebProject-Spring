@@ -1,12 +1,21 @@
-package com.spring.web.domain;
+package com.spring.web.entity;
 
-public class SignIn {
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
+
+@Entity
+public class MemberEntity {
+
+    @Id
     private String id;
 
     private String username;
 
     private String cityName;
+
+    private Date registerTime;
 
     public String getId() {
         return id;
@@ -30,5 +39,13 @@ public class SignIn {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 }

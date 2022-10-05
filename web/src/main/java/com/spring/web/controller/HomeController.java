@@ -40,5 +40,9 @@ public class HomeController {
         return mv;
     }
 
+    @GetMapping("/namebook/write")
+    public String nameBook() {
+        return "namebootk/write";
+    }
 
 }
