@@ -1,9 +1,16 @@
 package com.spring.web.controller;
 
+import com.spring.web.domain.Member;
+import com.spring.web.domain.NameBookPost;
 import com.spring.web.domain.Person;
+import com.spring.web.service.MemberService;
+import com.spring.web.service.NameBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
@@ -12,7 +19,14 @@ import java.util.Date;
 @Controller
 public class HomeController {
 
-//    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+    private NameBookService nameBookService;
+
+    @Autowired
+    public void setNameBookService(NameBookService nameBookService) {
+        this.nameBookService = nameBookService;
+    }
+
+    //    @RequestMapping(value = "/hello", method = RequestMethod.POST)
     @GetMapping("/hello")
     public String hello() {
         return "hello";
@@ -42,7 +56,22 @@ public class HomeController {
 
     @GetMapping("/namebook/write")
     public String nameBook() {
-        return "namebootk/write";
+        return "namebook/write";
+    }
+
+    @PostMapping("/namebook/write-save")
+    public String namebookAdd(
+            @RequestParam("writer") String writer,
+            @RequestParam("content") String content
+    ) {
+
+        NameBookPost post = new NameBookPost();
+        post.setWriter(writer);
+        post.setContent(content);
+
+        nameBookService.add(post);
+
+        return "namebook/write-save";
     }
 
 }
