@@ -6,7 +6,9 @@ import com.spring.web.repository.NameBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service(value = "nameBookService")
 public class NameBookServiceImpl implements NameBookService {
@@ -30,5 +32,22 @@ public class NameBookServiceImpl implements NameBookService {
         post.setIdx(entity.getIdx());
 
         return post;
+    }
+
+    @Override
+    public List<NameBookPost> list() {
+        List<NameBookPostEntity> entities =  nameBookRepository.findAll();
+
+        List<NameBookPost> result = new ArrayList<>();
+        for(NameBookPostEntity item : entities) {
+            NameBookPost post = new NameBookPost();
+            post.setIdx(item.getIdx());
+            post.setWriter(item.getWriter());
+            post.setContent((item.getContent()));
+
+            result.add(post);
+        }
+
+        return result;
     }
 }
