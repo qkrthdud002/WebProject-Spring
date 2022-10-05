@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>출력 페이지</title>
+</head>
+<body>
+<h1>출력 페이지 입니다.</h1>
+<!--<p th:text="${Sigin.id}"></p>-->
+<!--<p th:text="${Sigin.username}"></p>-->
+<!--<p th:text="${Sigin.cityName}"></p>-->
+<p>
+    <label>아이디</label>
+    <span th:text="${id}"></span>
+</p>
+
+<p>
+    <label>이름</label>
+    <span th:text="${username}"></span>
+</p>
+
+<p>
+    <label>도시명</label>
+    <span th:text="${cityName}"></span>
+</p>
+</body>
+</html>

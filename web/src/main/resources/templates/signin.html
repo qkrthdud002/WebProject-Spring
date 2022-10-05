@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 페이지</title>
+</head>
+<body>
+    <h1>입력 페이지 입니다.</h1>
+    <form action="signin-result" method="post">
+        <p>아이디 <input type="text" name="id"></p>
+        <p>이름 <input type="text" name="username"></p>
+        <p>
+            <label>도시명</label>
+            <select name="cityName">
+                <option>서울</option>
+                <option>대구</option>
+                <option>부산</option>
+                <option>인천</option>
+            </select>
+        </p>
+<!--        <a href="signin-result"><button>확인</button></a>    -->
+    <button>저장</button>
+    </form>
+
+</body>
+</html>
