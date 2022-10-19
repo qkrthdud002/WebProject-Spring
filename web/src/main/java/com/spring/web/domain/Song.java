@@ -2,20 +2,18 @@ package com.spring.web.domain;
 
 public class Song {
 
-
     private Long idx;
 
     private String title;
-
-    private String singer;
 
     private String composer;
 
     private int year;
 
-    public Song(String title, String singer, String composer, int year) {
+    private Artist artist;
+
+    public Song(String title, String composer, int year) {
         this.title = title;
-        this.singer = singer;
         this.composer = composer;
         this.year = year;
     }
@@ -26,14 +24,6 @@ public class Song {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getSinger() {
-        return singer;
-    }
-
-    public void setSinger(String singer) {
-        this.singer = singer;
     }
 
     public String getComposer() {
@@ -54,6 +44,14 @@ public class Song {
 
     public Long getIdx() {
         return idx;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public void setIdx(Long idx) {

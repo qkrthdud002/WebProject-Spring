@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 글쓰기</title>
+
+    <link href="/css/write.css" rel="stylesheet">
+</head>
+<body>
+<h1>글 작성</h1>
+
+<div class="input">
+    <form action="add-list" method="post">
+        <div>
+            <label>작성자</label>
+            <input type="text" name="username">
+        </div>
+
+        <div>
+            <label>제목</label>
+            <input type="text" name="title">
+        </div>
+
+        <div>
+            <label>내용</label>
+            <input type="text" name="content">
+        </div>
+
+        <div>
+            <label></label>
+            <button>등록</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

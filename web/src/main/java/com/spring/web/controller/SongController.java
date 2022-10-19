@@ -35,7 +35,7 @@ public class SongController {
     ) {
 
         // 데이터베이스에 노래를 저장한다.
-        Song song = new Song(title, singer, composer, year);
+        Song song = new Song(title, composer, year);
         songService.addSong(song);
 
         return "redirect:list";
@@ -83,7 +83,7 @@ public class SongController {
             @RequestParam("composer") String composer,
             @RequestParam("year") int year
     ) {
-        Song song = new Song(title, singer, composer, year);
+        Song song = new Song(title, composer, year);
         song.setIdx(idx);
         songService.update(song);
 
