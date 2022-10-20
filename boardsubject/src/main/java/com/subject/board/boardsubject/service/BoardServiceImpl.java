@@ -3,7 +3,6 @@ package com.subject.board.boardsubject.service;
 import com.subject.board.boardsubject.domain.Board;
 import com.subject.board.boardsubject.dto.BoardDeleteDTO;
 import com.subject.board.boardsubject.dto.BoardInsertDTO;
-import com.subject.board.boardsubject.dto.BoardUpdateDTO;
 import com.subject.board.boardsubject.entity.BoardEntity;
 import com.subject.board.boardsubject.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +21,6 @@ import java.util.Optional;
 @Slf4j
 public class BoardServiceImpl implements BoardService{
 
-//    private final BoardService boardService;
-
     private final BoardRepository boardRepository;
 
     @Override
@@ -34,9 +31,9 @@ public class BoardServiceImpl implements BoardService{
         for(BoardEntity item : list) {
             Board board = new Board(item.getUsername(),
                     item.getTitle(),
-                    item.getContent(),
-                    item.getCreatedTime(),
-                    item.getCount()
+                    item.getContent()
+                    //item.getCreatedTime(),
+                    //item.getCount()
             );
             board.setId(item.getId());
 
@@ -49,7 +46,14 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public Board addBoard(Board board) {
 
-        BoardEntity boardEntity = new BoardEntity(board.getUsername(), board.getTitle(), board.getContent(), board.getCreatedTime(), board.getCount());
+//        BoardEntity boardEntity = new BoardEntity(board.getUsername(), board.getTitle(), board.getContent(), board.getCreatedTime(), board.getCount());
+
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setUsername(board.getUsername());
+        boardEntity.setTitle(board.getTitle());
+        boardEntity.setContent(board.getContent());
+        boardEntity.setCreatedTime(board.getCreatedTime());
+        boardEntity.getCount();
 
         boardRepository.save(boardEntity);
         return board;
@@ -62,14 +66,14 @@ public class BoardServiceImpl implements BoardService{
 
         if(optional.isPresent()) {
             BoardEntity boardEntity = optional.get();
-            Board board = new Board(boardEntity.getUsername(), boardEntity.getTitle(), boardEntity.getContent(), LocalDateTime.now(), boardEntity.getCount());
+            Board board = new Board(boardEntity.getUsername(), boardEntity.getTitle(), boardEntity.getContent());
 
             board.setId(boardEntity.getId());
 
             return board;
 
         } else {
-
+            throw new IllegalArgumentException("잘못된 id 입니다.");
         }
     }
 
@@ -87,7 +91,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public BoardEntity update(BoardUpdateDTO boardUpdateDTO) {
+    public BoardEntity update(Board boardUpdateDTO) {
 
         BoardEntity boardEntity = BoardEntity.builder()
                 .username(boardUpdateDTO.getUsername())

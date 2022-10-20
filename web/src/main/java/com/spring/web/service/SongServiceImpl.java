@@ -61,7 +61,12 @@ public class SongServiceImpl implements SongService{
     @Override
     public Song addSong(Song song) {
         // TODO
-        SongEntity songEntity = new SongEntity(song.getIdx(), song.getTitle(), song.getComposer(), song.getYear());
+//        SongEntity songEntity = new SongEntity(song.getIdx(), song.getTitle(), song.getComposer(), song.getYear());
+
+        SongEntity songEntity = new SongEntity();
+        songEntity.setTitle(song.getTitle());
+        songEntity.setComposer(song.getComposer());
+        songEntity.setYear(song.getYear());
 
         songRepository.save(songEntity);
         return song;
@@ -81,7 +86,7 @@ public class SongServiceImpl implements SongService{
 
         }
 
-        return null;
+        return result;
     }
 
     @Override

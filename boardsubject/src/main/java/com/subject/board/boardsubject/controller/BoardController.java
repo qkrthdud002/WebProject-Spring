@@ -26,14 +26,29 @@ public class BoardController {
 
     @GetMapping("/write")
     public String wrtie() {
-
+        System.out.println("111111111");
         return "/write";
+    }
+
+    @PostMapping("/write-list.do")
+    public String writeList(
+            @RequestParam("username") String username,
+            @RequestParam("title") String title,
+            @RequestParam("content") String content
+            //@RequestParam("createdTime") LocalDateTime createdTime,
+            //@RequestParam("count") Long count
+    ) {
+
+        Board board = new Board(username, title, content);
+        boardService.addBoard(board);
+
+        return "redirect:list";
     }
 
     @GetMapping("/list")
     public ModelAndView list() {
 
-        ModelAndView mv = new ModelAndView("/board/list");
+        ModelAndView mv = new ModelAndView("/list");
 
         List<Board> list = boardService.getList();
         mv.addObject("list", list);
@@ -51,19 +66,32 @@ public class BoardController {
         return mv;
     }
 
-    @PostMapping("/write-list")
-    public String writeList(
+    @GetMapping("/update/{id}")
+    public ModelAndView update(
+            @PathVariable("id") Long id
+    ) {
+        ModelAndView mv = new ModelAndView("board/update");
+
+        Board board = boardService.read(id);
+        mv.addObject("board", board);
+
+        return mv;
+    }
+
+    @RequestMapping("/update-save.do")
+    public String updateSave(
+            @RequestParam("id") Long id,
             @RequestParam("username") String username,
             @RequestParam("title") String title,
-            @RequestParam("content") String content,
-            @RequestParam("createdTime") LocalDateTime createdTime,
-            @RequestParam("count") Long count
+            @RequestParam("content") String content
+            //@RequestParam("createdTime") LocalDateTime createdTime,
+            //@RequestParam("count") Long count
     ) {
+        Board board = new Board(username, title, content);
+        board.setId(id);
+        boardService.update(board);
 
-        Board board = new Board(username, title, content, createdTime, count);
-        boardService.addBoard(board);
-
-        return "redirect:list";
+        return "redirect:view/" + id;
     }
 
     @RequestMapping("/delete/{id}")

@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Song</title>
+
+    <link href="/css/song.css" rel="stylesheet">
+
+    <script>
+        const deleteBoard = function () {
+            if(confirm("정말 삭제하시겠습니까?")) {
+                const id = document.querySelector("[name = 'id']").value;
+                location.href = "/delete/" + id;
+            }
+        };
+    </script>
 </head>
 <body>
+<h1>게시판</h1>
 
+<div class="input">
+    <input type="hidden" name="id" th:value="${board.id}">
+    <div>
+        <label>작성자</label>
+        <span th:text="${board.username}"></span>
+    </div>
+
+    <div>
+        <label>제목</label>
+        <span th:text="${board.title}"></span>
+    </div>
+
+    <div>
+        <label>내용</label>
+        <span th:text="${board.content}"></span>
+    </div>
+
+    <div>
+        <label>작성일</label>
+        <span th:text="${board.createdTime}"></span>
+    </div>
+
+    <div>
+        <label>조회수</label>
+        <span th:text="${board.count}"></span>
+    </div>
+
+    <div>
+        <label></label>
+        <a href="list.html"><button>목록</button></a>
+        <a th:href="@{/board/update/{id}(id = ${board.id})}"><button>수정</button></a>
+        <a href="javascript:deleteBoard();"><button>삭제</button></a>
+    </div>
+
+</div>
 </body>
 </html>

@@ -1,6 +1,9 @@
 package com.subject.board.boardsubject.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Board {
 
@@ -12,16 +15,20 @@ public class Board {
 
     private String content;
 
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime createdTime;
+
+    public String time;
 
     private Long count;
 
-    public Board(String username, String title, String content, LocalDateTime createdTime, Long count) {
+    public Board(String username, String title, String content) {
         this.username = username;
         this.title = title;
         this.content = content;
-        this.createdTime = createdTime;
-        this.count = count;
+        this.createdTime = LocalDateTime.now();
+        this.time = createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm"));
+        //this.count = count;
     }
 
     public Long getId() {
