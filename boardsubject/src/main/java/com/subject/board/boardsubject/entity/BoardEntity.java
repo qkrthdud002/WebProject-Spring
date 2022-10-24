@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -33,15 +34,19 @@ public class BoardEntity {
     @Column(nullable = false)
     private LocalDateTime createdTime;
 
-    private Long count;
+    @Column(nullable = false)
+    private int views = 0;
+
+    public String time;
 
     @Builder
-    public BoardEntity(String username, String title, String content, LocalDateTime createdTime, Long count) {
+    public BoardEntity(String username, String title, String content, LocalDateTime createdTime) {
         this.username = username;
         this.title = title;
         this.content = content;
         this.createdTime = createdTime;
-        this.count = count;
+        //this.views = views;
+        this.time = createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm"));
     }
 
 

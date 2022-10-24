@@ -53,7 +53,6 @@ public class BoardServiceImpl implements BoardService{
         boardEntity.setTitle(board.getTitle());
         boardEntity.setContent(board.getContent());
         boardEntity.setCreatedTime(board.getCreatedTime());
-        boardEntity.getCount();
 
         boardRepository.save(boardEntity);
         return board;
@@ -77,6 +76,14 @@ public class BoardServiceImpl implements BoardService{
         }
     }
 
+//    @Override
+//    public int updateView(Long id) {
+//
+//
+//
+//        return 0;
+//    }
+
     @Override
     public BoardEntity insert(BoardInsertDTO boardInsertDTO) {
 
@@ -84,7 +91,6 @@ public class BoardServiceImpl implements BoardService{
                 .username(boardInsertDTO.getUsername())
                 .title(boardInsertDTO.getTitle())
                 .content(boardInsertDTO.getContent())
-                .count(0L)
                 .build();
 
         return boardRepository.save(boardEntity);
@@ -97,7 +103,6 @@ public class BoardServiceImpl implements BoardService{
                 .username(boardUpdateDTO.getUsername())
                 .title(boardUpdateDTO.getTitle())
                 .content(boardUpdateDTO.getContent())
-                .count(0L)
                 .build();
 
         return boardRepository.save(boardEntity);

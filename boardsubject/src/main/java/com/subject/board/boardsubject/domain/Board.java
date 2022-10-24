@@ -20,7 +20,7 @@ public class Board {
 
     public String time;
 
-    private Long count;
+    private int views;
 
     public Board(String username, String title, String content) {
         this.username = username;
@@ -71,12 +71,19 @@ public class Board {
         this.createdTime = createdTime;
     }
 
-
-    public Long getCount() {
-        return count;
+    public String getTime() {
+        return time;
     }
 
-    public void setCount(Long count) {
-        this.count = count;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 }

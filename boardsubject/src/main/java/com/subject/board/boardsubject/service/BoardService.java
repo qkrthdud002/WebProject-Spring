@@ -11,6 +11,7 @@ public interface BoardService {
     public List<Board> getList();
     public Board addBoard(Board board);
     public Board read(Long id);
+//    public int updateView(Long id);
     public BoardEntity insert(BoardInsertDTO boardInsertDTO);
     public BoardEntity update(Board boardUpdateDTO);
     public void delete(BoardDeleteDTO boardDeleteDTO);

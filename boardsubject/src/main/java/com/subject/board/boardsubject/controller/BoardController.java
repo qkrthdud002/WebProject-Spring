@@ -26,7 +26,7 @@ public class BoardController {
 
     @GetMapping("/write")
     public String wrtie() {
-        System.out.println("111111111");
+//        System.out.println("111111111");
         return "/write";
     }
 
@@ -58,7 +58,7 @@ public class BoardController {
 
     @GetMapping("/view/{id}")
     public ModelAndView view(@PathVariable("id") Long id) {
-        ModelAndView mv = new ModelAndView("view");
+        ModelAndView mv = new ModelAndView("/view");
 
         Board board = boardService.read(id);
         mv.addObject("board", board);
@@ -70,7 +70,7 @@ public class BoardController {
     public ModelAndView update(
             @PathVariable("id") Long id
     ) {
-        ModelAndView mv = new ModelAndView("board/update");
+        ModelAndView mv = new ModelAndView("/update");
 
         Board board = boardService.read(id);
         mv.addObject("board", board);
@@ -78,7 +78,7 @@ public class BoardController {
         return mv;
     }
 
-    @RequestMapping("/update-save.do")
+    @PostMapping("/update-save.do")
     public String updateSave(
             @RequestParam("id") Long id,
             @RequestParam("username") String username,
