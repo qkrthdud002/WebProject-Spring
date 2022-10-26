@@ -43,24 +43,29 @@ h1 {
 button {
     display: flex;
     justify-content: center;
-    /*-webkit-appearance: none;*/
-    /*-moz-appearance: none;*/
-    /*appearance: none;*/
 
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    cursor: pointer;
-    transition: 0.5s;
+    /*background-color: #FFEAB4;*/
 
-    /*color: #212529;*/
-    /*bg-color: #ffc107;*/
-    /*button-hover-bg-color: #e0a800;*/
-
-
+    font-size: medium;
+    font-weight: normal;
 
 }
 
-.btn {
+input {
+    font-size: medium;
+    font-weight: bold;
+}
+
+input::placeholder {
+    font-size: medium;
+    font-weight: bold;
+}
+
+button {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-left: 755px;
+    width: 68px;
+    height: 38px;
+    margin: 0px auto;
 }

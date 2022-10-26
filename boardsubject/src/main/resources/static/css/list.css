@@ -37,6 +37,7 @@ a {
 
 .list {
     border-collapse: collapse;
+    text-overflow: ellipsis;
 }
 
 .list td,th {
