@@ -50,5 +50,12 @@ public class BoardEntity {
     }
 
 
+    public void modify(String username, String title, String content, LocalDateTime createdTime) {
+        this.username = username;
+        this.title = title;
+        this.content = content;
+        this.createdTime = createdTime;
+    }
+
 
 }

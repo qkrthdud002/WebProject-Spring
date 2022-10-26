@@ -14,5 +14,8 @@ public interface BoardService {
 //    public int updateView(Long id);
     public BoardEntity insert(BoardInsertDTO boardInsertDTO);
     public BoardEntity update(Board boardUpdateDTO);
-    public void delete(BoardDeleteDTO boardDeleteDTO);
+
+//    BoardEntity update(BoardUpdateDTO boardUpdateDTO);
+
+    public Long delete(BoardDeleteDTO boardDeleteDTO);
 }

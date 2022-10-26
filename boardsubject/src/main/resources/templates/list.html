@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <title>List</title>
 
-    <link href="/css/song.css" rel="stylesheet">
+    <link href="/css/list.css" rel="stylesheet">
 </head>
 <body>
 <h1>게시판 목록</h1>
 
-<div>
+<div class="write">
 
-    <a href="write">추가</a>
+    <a href="write">글 쓰기</a>
 </div>
 
 <table class="list">
     <thead>
+    <tr class="top">
+        <td>작성자</td>
+        <td>제목</td>
+        <td>내용</td>
+        <td>날짜</td>
+        <td>조회수</td>
+    </tr>
+
     <tr th:each="item : ${list}">
         <td th:text="${item.username}"></td>
         <td><a th:href="@{view/{id}(id = ${item.id})}" th:text="${item.title}"></a></td>

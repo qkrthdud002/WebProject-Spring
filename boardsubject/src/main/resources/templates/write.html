@@ -5,29 +5,29 @@
     <title>게시판 글쓰기</title>
 
     <link href="/css/write.css" rel="stylesheet">
+
 </head>
 <body>
 <h1>글 작성</h1>
 
 <div class="input">
     <form action="write-list.do" method="post">
-        <div>
-            <label>작성자</label>
-            <input type="text" name="username">
+        <div class="writer">
+<!--            <label>작성자</label>-->
+            <input type="text" name="username" placeholder="작성자" class="writerInput">
         </div>
 
-        <div>
-            <label>제목</label>
-            <input type="text" name="title">
+        <div class="writeTitle">
+<!--            <label>제목</label>-->
+            <input type="text" name="title" placeholder="제목" class="writeInput">
         </div>
 
-        <div>
-            <label>내용</label>
-            <input type="text" name="content">
+        <div class="content">
+<!--            <label>내용</label>-->
+            <input type="text" name="content" placeholder="내용" class="contentInput">
         </div>
 
-        <div>
-            <label></label>
+        <div class="btn">
             <button>등록</button>
         </div>
 

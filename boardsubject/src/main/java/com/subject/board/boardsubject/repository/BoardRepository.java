@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface BoardRepository extends JpaRepository<BoardEntity, Long> {
 
-//    @Modifying @Query("update BoardEntity p set p.view = p.view + 1 where p.id = :id")
+//    @Modifying
+//    @Query("update Board b set b.views = b.views + 1 where b.id = :id")
 //    int updateView(Long id);
 
 }

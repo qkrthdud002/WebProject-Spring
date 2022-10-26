@@ -2,18 +2,12 @@ package com.subject.board.boardsubject.controller;
 
 import com.subject.board.boardsubject.domain.Board;
 import com.subject.board.boardsubject.dto.BoardDeleteDTO;
-import com.subject.board.boardsubject.dto.BoardInsertDTO;
-import com.subject.board.boardsubject.entity.BoardEntity;
 import com.subject.board.boardsubject.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
 
 @Controller
@@ -58,7 +52,7 @@ public class BoardController {
 
     @GetMapping("/view/{id}")
     public ModelAndView view(@PathVariable("id") Long id) {
-        ModelAndView mv = new ModelAndView("/view");
+        ModelAndView mv = new ModelAndView("view");
 
         Board board = boardService.read(id);
         mv.addObject("board", board);
@@ -79,7 +73,7 @@ public class BoardController {
     }
 
     @PostMapping("/update-save.do")
-    public String updateSave(
+    public String updateSave (
             @RequestParam("id") Long id,
             @RequestParam("username") String username,
             @RequestParam("title") String title,
@@ -87,11 +81,13 @@ public class BoardController {
             //@RequestParam("createdTime") LocalDateTime createdTime,
             //@RequestParam("count") Long count
     ) {
+
         Board board = new Board(username, title, content);
         board.setId(id);
+//        boardService.updateView(id);
         boardService.update(board);
 
-        return "redirect:view/" + id;
+        return "redirect:/board/list";
     }
 
     @RequestMapping("/delete/{id}")

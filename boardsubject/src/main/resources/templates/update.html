@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Song</title>
 
-    <link href="/css/song.css?1" rel="stylesheet">
+    <link href="/css/board.css" rel="stylesheet">
 
 </head>
 <body>
 <h1>글 수정</h1>
 
 <div class="input">
-    <form action="update-save.do" method="post">
+    <form action="../update-save.do" method="post">
         <input type="hidden" name="id" th:value="${board.id}">
         <div>
             <label>작성자</label>

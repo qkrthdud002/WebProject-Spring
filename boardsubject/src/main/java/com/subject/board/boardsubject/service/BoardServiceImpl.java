@@ -21,6 +21,8 @@ import java.util.Optional;
 @Slf4j
 public class BoardServiceImpl implements BoardService{
 
+//    private final BoardService boardService;
+
     private final BoardRepository boardRepository;
 
     @Override
@@ -77,11 +79,9 @@ public class BoardServiceImpl implements BoardService{
     }
 
 //    @Override
+//    @Transactional
 //    public int updateView(Long id) {
-//
-//
-//
-//        return 0;
+//        return boardRepository.updateView(id);
 //    }
 
     @Override
@@ -99,21 +99,18 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public BoardEntity update(Board boardUpdateDTO) {
 
-        BoardEntity boardEntity = BoardEntity.builder()
-                .username(boardUpdateDTO.getUsername())
-                .title(boardUpdateDTO.getTitle())
-                .content(boardUpdateDTO.getContent())
-                .build();
+        BoardEntity boardEntity = boardRepository.findById(boardUpdateDTO.getId()).orElseThrow(() -> new RuntimeException());
 
-        return boardRepository.save(boardEntity);
+        boardEntity.modify(boardUpdateDTO.getUsername(), boardUpdateDTO.getTitle(), boardUpdateDTO.getContent(), LocalDateTime.now());
+        return boardEntity;
     }
 
     @Override
-    public void delete(BoardDeleteDTO boardDeleteDTO) {
+    public Long delete(BoardDeleteDTO boardDeleteDTO) {
 
         BoardEntity boardEntity = boardRepository.getReferenceById(boardDeleteDTO.getId());
 
         boardRepository.delete(boardEntity);
-
+        return boardEntity.getId();
     }
 }
