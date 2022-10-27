@@ -2,6 +2,8 @@ package com.subject.board.boardsubject.controller;
 
 import com.subject.board.boardsubject.domain.Board;
 import com.subject.board.boardsubject.dto.BoardDeleteDTO;
+import com.subject.board.boardsubject.dto.BoardListDTO;
+import com.subject.board.boardsubject.dto.BoardViewDTO;
 import com.subject.board.boardsubject.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -29,8 +31,7 @@ public class BoardController {
             @RequestParam("username") String username,
             @RequestParam("title") String title,
             @RequestParam("content") String content
-            //@RequestParam("createdTime") LocalDateTime createdTime,
-            //@RequestParam("count") Long count
+//            @RequestParam("views") int views
     ) {
 
         Board board = new Board(username, title, content);
@@ -44,7 +45,7 @@ public class BoardController {
 
         ModelAndView mv = new ModelAndView("/list");
 
-        List<Board> list = boardService.getList();
+        List<BoardListDTO> list = boardService.getList();
         mv.addObject("list", list);
 
         return mv;
@@ -54,8 +55,9 @@ public class BoardController {
     public ModelAndView view(@PathVariable("id") Long id) {
         ModelAndView mv = new ModelAndView("view");
 
-        Board board = boardService.read(id);
-        mv.addObject("board", board);
+        BoardViewDTO boardViewDTO = boardService.read(id);
+        mv.addObject("board", boardViewDTO);
+
 
         return mv;
     }
@@ -66,7 +68,7 @@ public class BoardController {
     ) {
         ModelAndView mv = new ModelAndView("/update");
 
-        Board board = boardService.read(id);
+        BoardViewDTO board = boardService.read(id);
         mv.addObject("board", board);
 
         return mv;
@@ -78,8 +80,7 @@ public class BoardController {
             @RequestParam("username") String username,
             @RequestParam("title") String title,
             @RequestParam("content") String content
-            //@RequestParam("createdTime") LocalDateTime createdTime,
-            //@RequestParam("count") Long count
+
     ) {
 
         Board board = new Board(username, title, content);
@@ -90,11 +91,14 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-    @RequestMapping("/delete/{id}")
-    public String delete(@PathVariable("id") BoardDeleteDTO boardDeleteDTO) {
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+
+        BoardDeleteDTO boardDeleteDTO = new BoardDeleteDTO(id);
+
         boardService.delete(boardDeleteDTO);
 
-        return "redirect:/list";
+        return "redirect:/board/list";
     }
 
 }

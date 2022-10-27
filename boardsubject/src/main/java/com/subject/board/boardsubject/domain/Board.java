@@ -1,6 +1,7 @@
 package com.subject.board.boardsubject.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -20,15 +21,12 @@ public class Board {
 
     public String time;
 
-    private int views;
-
     public Board(String username, String title, String content) {
         this.username = username;
         this.title = title;
         this.content = content;
         this.createdTime = LocalDateTime.now();
         this.time = createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm"));
-        //this.count = count;
     }
 
     public Long getId() {
@@ -79,11 +77,4 @@ public class Board {
         this.time = time;
     }
 
-    public int getViews() {
-        return views;
-    }
-
-    public void setViews(int views) {
-        this.views = views;
-    }
 }
