@@ -51,9 +51,12 @@ button:hover:before,button:hover:after{
 }
 
 .writeBtn {
-    float: right;
-    width: 100px;
-    height: 400px;
+    text-decoration-line: underline;
+    /*justify-content: center;*/
+    margin: auto;
+    display: block;
+    width: 60px;
+    height: 40px;
     background-color: #fff0f3;
     border-color: hotpink;
 }

@@ -121,3 +121,13 @@ button:hover:before,button:hover:after{
     transition:800ms ease all;
 }
 
+.writeBtn {
+    text-decoration-line: underline;
+    /*justify-content: center;*/
+    margin: auto;
+    display: block;
+    width: 60px;
+    height: 40px;
+    background-color: #fff0f3;
+    border-color: hotpink;
+}
