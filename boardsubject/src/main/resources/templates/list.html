@@ -9,9 +9,6 @@
 <body>
 <h1>게시판 목록</h1>
 
-<div class="write">
-    <a th:href="@{/board/write}"><button>글작성</button></a>
-</div>
 
 <table class="list">
     <thead>
@@ -33,6 +30,10 @@
     </tr>
     </thead>
 </table>
+
+    <div class="write">
+        <a th:href="@{/board/write}"><button class="writeBtn">글작성</button></a>
+    </div>
 
 </body>
 </html>

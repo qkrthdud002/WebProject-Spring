@@ -1,6 +1,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 15px;
 }
 th, td {
     padding: 10px;
@@ -49,3 +50,10 @@ button:hover:before,button:hover:after{
     transition:800ms ease all;
 }
 
+.writeBtn {
+    float: right;
+    width: 100px;
+    height: 400px;
+    background-color: #fff0f3;
+    border-color: hotpink;
+}
