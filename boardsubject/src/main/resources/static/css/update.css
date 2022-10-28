@@ -5,8 +5,9 @@ h1 {
 }
 
 a {
-    text-align: center;
-    margin-left: 553px;
+    display: flex;
+    /*text-align: left;*/
+    justify-content: left;
     font-size: medium;
     font-weight: bold;
 }
