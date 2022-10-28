@@ -9,10 +9,4 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface BoardRepository extends JpaRepository<BoardEntity, Long> {
 
-//    @Modifying
-//    @Transactional
-//    @Query(value = "update board b set b.views = b.views + 1 where board_id = :id", nativeQuery = true)
-//    int updateView(@Param("id") Long id);
-//
-
 }
