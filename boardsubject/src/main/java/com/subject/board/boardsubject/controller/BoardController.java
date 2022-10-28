@@ -3,6 +3,7 @@ package com.subject.board.boardsubject.controller;
 import com.subject.board.boardsubject.domain.Board;
 import com.subject.board.boardsubject.dto.BoardDeleteDTO;
 import com.subject.board.boardsubject.dto.BoardListDTO;
+import com.subject.board.boardsubject.dto.BoardUpdateDTO;
 import com.subject.board.boardsubject.dto.BoardViewDTO;
 import com.subject.board.boardsubject.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -68,7 +69,7 @@ public class BoardController {
     ) {
         ModelAndView mv = new ModelAndView("/update");
 
-        BoardViewDTO board = boardService.read(id);
+        BoardUpdateDTO board = boardService.updateView(id);
         mv.addObject("board", board);
 
         return mv;

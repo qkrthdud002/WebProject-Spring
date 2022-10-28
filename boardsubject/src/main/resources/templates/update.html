@@ -2,9 +2,9 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Song</title>
+    <title>Board</title>
 
-    <link href="/css/board.css" rel="stylesheet">
+    <link href="/css/update.css" rel="stylesheet">
 
 </head>
 <body>
@@ -13,23 +13,22 @@
 <div class="input">
     <form action="../update-save.do" method="post">
         <input type="hidden" name="id" th:value="${board.id}">
-        <div>
-            <label>작성자</label>
-            <input type="text" name="username" th:value="${board.username}">
+        <a>작성자</a>
+        <div class="writer">
+            <input type="text" name="username" class="writerInput" th:value="${board.username}">
         </div>
 
-        <div>
-            <label>제목</label>
-            <input type="text" name="title" th:value="${board.title}">
+        <a>제목</a>
+        <div class="writeTitle">
+            <input type="text" name="title" class="writeInput" th:value="${board.title}">
         </div>
 
-        <div>
-            <label>내용</label>
-            <input type="text" name="content" th:value="${board.content}">
+        <a>내용</a>
+        <div class="content">
+            <input type="text" name="content" class="contentInput" th:value="${board.content}">
         </div>
 
-        <div>
-            <label></label>
+        <div class="btn">
             <button>저장</button>
         </div>
 

@@ -46,7 +46,6 @@ public class BoardEntity {
         this.content = content;
         this.createdTime = createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm"));
         this.views = views;
-//        this.time = createdTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm"));
     }
 
 

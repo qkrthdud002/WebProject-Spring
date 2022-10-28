@@ -2,12 +2,14 @@ package com.subject.board.boardsubject.dto;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @AllArgsConstructor
+@Builder
 public class BoardUpdateDTO {
 
     @NotNull

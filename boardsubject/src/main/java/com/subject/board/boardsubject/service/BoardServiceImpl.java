@@ -1,10 +1,7 @@
 package com.subject.board.boardsubject.service;
 
 import com.subject.board.boardsubject.domain.Board;
-import com.subject.board.boardsubject.dto.BoardDeleteDTO;
-import com.subject.board.boardsubject.dto.BoardInsertDTO;
-import com.subject.board.boardsubject.dto.BoardListDTO;
-import com.subject.board.boardsubject.dto.BoardViewDTO;
+import com.subject.board.boardsubject.dto.*;
 import com.subject.board.boardsubject.entity.BoardEntity;
 import com.subject.board.boardsubject.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -115,6 +112,21 @@ public class BoardServiceImpl implements BoardService{
 
         boardEntity.modify(boardUpdateDTO.getUsername(), boardUpdateDTO.getTitle(), boardUpdateDTO.getContent(), LocalDateTime.now());
         return boardEntity;
+    }
+
+    @Override
+    public BoardUpdateDTO updateView(Long id) {
+
+        BoardEntity boardEntity = boardRepository.findById(id).orElseThrow(() -> new RuntimeException());
+
+        BoardUpdateDTO boardUpdateDTO = BoardUpdateDTO.builder()
+                .id(id)
+                .title(boardEntity.getTitle())
+                .content(boardEntity.getContent())
+                .username(boardEntity.getUsername())
+                .build();
+
+        return boardUpdateDTO;
     }
 
     @Override
