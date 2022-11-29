@@ -1,4 +1,4 @@
-package com.subject.board.boardsubject.entity;
+package com.subject.board.boardsubject.board.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;

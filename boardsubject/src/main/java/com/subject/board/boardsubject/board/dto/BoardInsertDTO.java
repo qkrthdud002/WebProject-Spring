@@ -1,16 +1,15 @@
-package com.subject.board.boardsubject.dto;
+package com.subject.board.boardsubject.board.dto;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-@Builder
-public class BoardUpdateDTO {
+public class BoardInsertDTO {
 
     @NotNull
     private Long id;
@@ -24,6 +23,6 @@ public class BoardUpdateDTO {
     @NotBlank
     private String content;
 
-
+    private LocalDateTime createdTime;
 
 }

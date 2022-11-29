@@ -1,4 +1,4 @@
-package com.subject.board.boardsubject.domain;
+package com.subject.board.boardsubject.board.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.web.servlet.ModelAndView;

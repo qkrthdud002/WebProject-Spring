@@ -1,4 +1,4 @@
-package com.subject.board.boardsubject.dto;
+package com.subject.board.boardsubject.board.dto;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.subject.board.boardsubject.dto;
+package com.subject.board.boardsubject.board.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

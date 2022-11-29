@@ -1,9 +1,9 @@
-package com.subject.board.boardsubject.service;
+package com.subject.board.boardsubject.board.service;
 
-import com.subject.board.boardsubject.domain.Board;
-import com.subject.board.boardsubject.dto.*;
-import com.subject.board.boardsubject.entity.BoardEntity;
-import com.subject.board.boardsubject.repository.BoardRepository;
+import com.subject.board.boardsubject.board.domain.Board;
+import com.subject.board.boardsubject.board.dto.*;
+import com.subject.board.boardsubject.board.entity.BoardEntity;
+import com.subject.board.boardsubject.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;

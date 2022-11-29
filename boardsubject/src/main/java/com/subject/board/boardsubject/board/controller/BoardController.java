@@ -1,11 +1,11 @@
-package com.subject.board.boardsubject.controller;
+package com.subject.board.boardsubject.board.controller;
 
-import com.subject.board.boardsubject.domain.Board;
-import com.subject.board.boardsubject.dto.BoardDeleteDTO;
-import com.subject.board.boardsubject.dto.BoardListDTO;
-import com.subject.board.boardsubject.dto.BoardUpdateDTO;
-import com.subject.board.boardsubject.dto.BoardViewDTO;
-import com.subject.board.boardsubject.service.BoardService;
+import com.subject.board.boardsubject.board.domain.Board;
+import com.subject.board.boardsubject.board.dto.BoardDeleteDTO;
+import com.subject.board.boardsubject.board.dto.BoardViewDTO;
+import com.subject.board.boardsubject.board.dto.BoardListDTO;
+import com.subject.board.boardsubject.board.dto.BoardUpdateDTO;
+import com.subject.board.boardsubject.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
