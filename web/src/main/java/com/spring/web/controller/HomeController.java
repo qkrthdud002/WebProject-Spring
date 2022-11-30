@@ -89,4 +89,10 @@ public class HomeController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/calc/add")
+    public String adder() {
+
+        return "calc/adder";
+    }
 }

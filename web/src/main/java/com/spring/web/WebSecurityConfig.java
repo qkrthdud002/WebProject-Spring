@@ -21,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/img/**").permitAll()
 //                .antMatchers("/song/list").permitAll() // "/song/**" : song과 관려된 거는 다 권한 허용
                 .antMatchers("/song/**").hasRole("ADMIN")
+                .antMatchers("/rest/**", "/calc/**").permitAll()
                 .anyRequest().authenticated();
 
         // csrf : 사이트 간 요청 위조
